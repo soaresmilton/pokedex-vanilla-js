@@ -1,74 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokedex</title>
 
-    <link rel="stylesheet" href="style.css" />
-    <script src="./src/index.js" defer></script>
-  </head>
-  <body>
-    <h1>Search for Pokemons</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokedex</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="./src/index.js" defer></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="poke-app">
+    <div class="init-container">
+      <!-- <img src="./public/images/pokemon-logo.png" alt=""> -->
+      <h1>Poke App</h1>
+    </div>
 
     <form class="form">
-      <input type="text" class="search" value="Pikachu" />
-      <button type="submit" class="search-btn">Pesquisar</button>
+      <label for="search">Search for Pokemons</label>
+      <input type="text" class="search" name="search" placeholder="Type Pokémon name" />
+      <button type="submit" class="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </form>
 
     <div class="container">
-      <img
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-        alt="Pikachu"
-        class="pokemon-sprite"
-      />
-      <h2 class="pokemon-id">#0025</h2>
-      <h1 class="pokemon-name">Pikachu</h1>
+      <div class="hero-container">
 
-      <div class="types-container">
-        <h3>Types:</h3>
-        <ul class="pokemon-types">
-          <li>
-            <span class="type">Electric</span>
-          </li>
-        </ul>
+        <span class="pokemon-id">#0025</span>
+        <h1 class="pokemon-name">Pikachu</h1>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu"
+          class="pokemon-sprite" />
       </div>
-      <h3>Stats:</h3>
+        <div class="div"></div>
+      <div>
+        <div class="types-container">
+          <h3>Types:</h3>
+          <ul class="pokemon-types">
+            <li class="type">
+              <span>Electric</span>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="stats-container">
+          <h3>Base stats:</h3>
+
+          <ul class="pokemon-stats">
+            <li class="stat" id="hp">
+              <span>Hp:</span>
+              <span>35</span>
+            </li>
+
+            <li class="stat" id="attack">
+              <span>Attack:</span>
+              <span>55</span>
+            </li>
+
+            <li class="stat" id="defense">
+              <span>Defense:</span>
+              <span>40</span>
+            </li>
+
+            <li class="stat" id="special-attack">
+              <span>Special-Attack:</span>
+              <span>50</span>
+            </li>
+
+            <li class="stat" id="special-defense">
+              <span>Special-Defense:</span>
+              <span>50</span>
+            </li>
+
+            <li class="stat" id="speed">
+              <span>Speed:</span>
+              <span>90</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+</body>
 
-    <div class="stats-container">
-      <ul class="pokemon-stats">
-        <li class="stat" id="hp">
-          <span>Hp:</span>
-          <span>35</span>
-        </li>
-
-        <li class="stat" id="attack">
-          <span>Attack:</span>
-          <span>55</span>
-        </li>
-
-        <li class="stat" id="defense">
-          <span>Defense:</span>
-          <span>40</span>
-        </li>
-
-        <li class="stat" id="special-attack">
-          <span>Special-Attack:</span>
-          <span>50</span>
-        </li>
-
-        <li class="stat" id="special-defense">
-          <span>Special-Defense:</span>
-          <span>50</span>
-        </li>
-
-        <li class="stat" id="speed">
-          <span>Speed:</span>
-          <span>90</span>
-        </li>
-      </ul>
-    </div>
-  </body>
 </html>

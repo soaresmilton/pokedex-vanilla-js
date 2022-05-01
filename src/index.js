@@ -1,4 +1,5 @@
 const $ = (el) => document.querySelector(el);
+const app = $('.poke-app');
 const search = $(".search");
 const form = $(".form");
 const pokemonSprite = $(".pokemon-sprite");
@@ -9,12 +10,14 @@ const pokemonStats = $(".pokemon-stats");
 
 const typeColors = {
   fire: "#ee6565",
+  dark: "#18181a",
   grass: "#DEFDE0",
   electric: "#FCF7DE",
   water: "#DEF3FD",
   ground: "#F4E7DA",
   rock: "#D5D5D4",
   fairy: "#FCEAFF",
+  ghost: "#552381",
   poison: "#a069d1",
   bug: "#F8D5A3",
   dragon: "#97B3E6",
@@ -24,17 +27,20 @@ const typeColors = {
   normal: "#F5F5F5",
 };
 
+const mainTypes = Object.keys(typeColors);
+
+
 const pokemon = {};
 let pokemonInput = search.value;
 
 async function fetchPokemon() {
   const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonInput.toLowerCase()}/`;
-  const { pokemonDataHandler, displayRenderHandler } = handlers;
+  const { pokemonDataHandler, renderPokemonHandler } = handlers;
   await fetch(URL)
     .then((response) => response.json())
     .then((data) => {
       pokemonDataHandler(data);
-      displayRenderHandler(pokemon);
+      renderPokemonHandler(pokemon);
     })
     .catch(() => {
       alert("Pokemon não encontrado. Tente novamente");
@@ -67,21 +73,31 @@ const handlers = {
     pokemon.stats = stats;
   },
 
-  displayRenderHandler(pokemonData) {
+  renderPokemonHandler(pokemonData) {
     console.log(pokemonData);
     const { id, name, ability, types, sprite, stats } = pokemon;
     pokemonSprite.src = sprite;
-    pokemonId.innerHTML = `#${id}`;
+    pokemonId.innerHTML = `#${id.toString().padStart(3, '0')}`;
     pokemonName.innerHTML = name[0].toUpperCase() + name.slice(1);
 
+    const pokeTypes = types.map(elemetType => elemetType.type.name);
+    const type = mainTypes.find(type => pokeTypes.indexOf(type) > -1);
+
+
+    const color = typeColors[type];
+    console.log(color)
+    app.style.backgroundColor = color;
+
+
     pokemonTypes.innerHTML = "";
-    types.forEach((type) => {
+
+    types.map((type) => {
       pokemonTypes.innerHTML =
         pokemonTypes.innerHTML +
         `
-        <li class="type">${
-          type.type.name[0].toUpperCase() + type.type.name.slice(1)
-        }</li>
+        <li class="type">
+          <span>${type.type.name[0].toUpperCase() + type.type.name.slice(1)}</span>
+        </li>
       `;
     });
 
