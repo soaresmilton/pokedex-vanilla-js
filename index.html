@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="./src/index.js" defer></script>
+  </head>
+  <body>
+    <h1>Search for Pokemons</h1>
+
+    <form class="form">
+      <input type="text" class="search" value="Pikachu" />
+      <button type="submit" class="search-btn">Pesquisar</button>
+    </form>
+
+    <div class="container">
+      <img
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+        alt="Pikachu"
+        class="pokemon-sprite"
+      />
+      <h2 class="pokemon-id">#0025</h2>
+      <h1 class="pokemon-name">Pikachu</h1>
+
+      <div class="types-container">
+        <h3>Types:</h3>
+        <ul class="pokemon-types">
+          <li>
+            <span class="type">Electric</span>
+          </li>
+        </ul>
+      </div>
+      <h3>Stats:</h3>
+    </div>
+
+    <div class="stats-container">
+      <ul class="pokemon-stats">
+        <li class="stat" id="hp">
+          <span>Hp:</span>
+          <span>35</span>
+        </li>
+
+        <li class="stat" id="attack">
+          <span>Attack:</span>
+          <span>55</span>
+        </li>
+
+        <li class="stat" id="defense">
+          <span>Defense:</span>
+          <span>40</span>
+        </li>
+
+        <li class="stat" id="special-attack">
+          <span>Special-Attack:</span>
+          <span>50</span>
+        </li>
+
+        <li class="stat" id="special-defense">
+          <span>Special-Defense:</span>
+          <span>50</span>
+        </li>
+
+        <li class="stat" id="speed">
+          <span>Speed:</span>
+          <span>90</span>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
