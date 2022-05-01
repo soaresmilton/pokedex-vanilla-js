@@ -9,22 +9,23 @@ const pokemonTypes = $(".pokemon-types");
 const pokemonStats = $(".pokemon-stats");
 
 const typeColors = {
-  fire: "#ee6565",
+  fire: "#f04c00",
   dark: "#18181a",
-  grass: "#DEFDE0",
-  electric: "#FCF7DE",
+  bug: "#476e28",
+  grass: "#2d8a33",
+  electric: "rgba(247, 195, 23, 1)",
+  steel: "#ccc",
   water: "#DEF3FD",
-  ground: "#F4E7DA",
+  ground: "#614c2f",
   rock: "#D5D5D4",
-  fairy: "#FCEAFF",
+  fairy: "#e6369c",
   ghost: "#552381",
   poison: "#a069d1",
-  bug: "#F8D5A3",
   dragon: "#97B3E6",
   psychich: "#eaeda1",
-  flying: "#F5F5F5",
-  fighting: "#E6E0D4",
-  normal: "#F5F5F5",
+  flying: "#157cd1",
+  fighting: "#5c5852",
+  normal: "#d37203",
 };
 
 const mainTypes = Object.keys(typeColors);
@@ -44,6 +45,7 @@ async function fetchPokemon() {
     })
     .catch(() => {
       alert("Pokemon não encontrado. Tente novamente");
+      app.style.opacity = "1";
     });
 }
 
@@ -60,6 +62,7 @@ form.addEventListener("submit", (event) => {
   fetchPokemon();
   search.value = "";
   search.classList.remove("red-border");
+  app.style.opacity = "0"; 
 });
 
 const handlers = {
@@ -112,5 +115,8 @@ const handlers = {
         </li>
      `;
     });
+
+  app.style.opacity = "1"; 
+
   },
 };
